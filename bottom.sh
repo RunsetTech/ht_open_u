@@ -72,7 +72,7 @@ export AUTO_INSTALL=y
 # export COMPRESSION_ENABLED=n
 # export CUSTOMIZE_ENC=n
 # export CLIENT=nima
-export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+#export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 # export PASS=1
 
 function isRoot() {
