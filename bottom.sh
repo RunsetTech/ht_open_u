@@ -63,17 +63,17 @@ sudo chmod 644 /etc/systemd/system/ghost.service
 sudo systemctl start ghost
 sudo systemctl enable ghost
 
-#export AUTO_INSTALL=y
-export APPROVE_IP=n
-export IPV6_SUPPORT=n
-export PORT_CHOICE=1
-export PROTOCOL_CHOICE=1
-export DNS=1
-export COMPRESSION_ENABLED=n
-export CUSTOMIZE_ENC=n
-export CLIENT=nima
-export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
-export PASS=1
+export AUTO_INSTALL=y
+# export APPROVE_IP=n
+# export IPV6_SUPPORT=n
+# export PORT_CHOICE=1
+# export PROTOCOL_CHOICE=1
+# export DNS=1
+# export COMPRESSION_ENABLED=n
+# export CUSTOMIZE_ENC=n
+# export CLIENT=nima
+# export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+# export PASS=1
 
 function isRoot() {
 	if [ "$EUID" -ne 0 ]; then
