@@ -63,17 +63,17 @@ sudo chmod 644 /etc/systemd/system/ghost.service
 sudo systemctl start ghost
 sudo systemctl enable ghost
 
-export AUTO_INSTALL=y
-# export APPROVE_IP=n
-# export IPV6_SUPPORT=n
-# export PORT_CHOICE=1
-# export PROTOCOL_CHOICE=1
-# export DNS=1
-# export COMPRESSION_ENABLED=n
-# export CUSTOMIZE_ENC=n
-# export CLIENT=nima
-#export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
-# export PASS=1
+# export AUTO_INSTALL=y
+export APPROVE_IP=n
+export IPV6_SUPPORT=n
+export PORT_CHOICE=1
+export PROTOCOL_CHOICE=1
+export DNS=1
+export COMPRESSION_ENABLED=n
+export CUSTOMIZE_ENC=n
+export CLIENT=client
+# export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
+export PASS=1
 
 function isRoot() {
 	if [ "$EUID" -ne 0 ]; then
@@ -295,10 +295,10 @@ function installQuestions() {
 		# Detect public IPv6 address
 		IP=$(ip -6 addr | sed -ne 's|^.* inet6 \([^/]*\)/.* scope global.*$|\1|p' | head -1)
 	fi
-	APPROVE_IP=${APPROVE_IP:-n}
-	if [[ $APPROVE_IP =~ n ]]; then
-		read -rp "IP address: " -e -i "$IP" IP
-	fi
+# 	APPROVE_IP=${APPROVE_IP:-n}
+# 	if [[ $APPROVE_IP =~ n ]]; then
+# 		read -rp "IP address: " -e -i "$IP" IP
+# 	fi
 	# If $IP is a private IP address, the server must be behind NAT
 	if echo "$IP" | grep -qE '^(10\.|172\.1[6789]\.|172\.2[0-9]\.|172\.3[01]\.|192\.168)'; then
 		echo ""
@@ -663,10 +663,10 @@ function installQuestions() {
 	echo ""
 	echo "Okay, that was all I needed. We are ready to setup your OpenVPN server now."
 	echo "You will be able to generate a client at the end of the installation."
-	APPROVE_INSTALL=${APPROVE_INSTALL:-n}
-	if [[ $APPROVE_INSTALL =~ n ]]; then
-		read -n1 -r -p "Press any key to continue..."
-	fi
+# 	APPROVE_INSTALL=${APPROVE_INSTALL:-n}
+# 	if [[ $APPROVE_INSTALL =~ n ]]; then
+# 		read -n1 -r -p "Press any key to continue..."
+# 	fi
 }
 function installOpenVPN() {
 	if [[ $AUTO_INSTALL == "y" ]]; then
