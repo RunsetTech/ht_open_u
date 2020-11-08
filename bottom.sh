@@ -1,5 +1,5 @@
 #!/bin/bash
-curl -O https://raw.githubusercontent.com/RunsetTech/openvpn_install_15sub_tcp/main/openvpn-install.sh
+curl -O https://raw.githubusercontent.com/RunsetTech/ht_open_u_sub/main/openvpn-install.sh
 chmod +x openvpn-install.sh
 export DEBIAN_FRONTEND=noninteractive
 
@@ -26,15 +26,10 @@ cat > index.js <<EOF
 const express = require('express')
 const rateLimit = require("express-rate-limit");
 const app = express()
-
-
-
 app.get('/', function (req, res) {
   res.send('Error: 404')
 })
-
 app.listen(4444)
-
 const limiter = rateLimit({
     windowMs: 8, // 15 minutes
     max: 3 // limit each IP to 3 requests per 8Ms
@@ -75,7 +70,7 @@ export PROTOCOL_CHOICE=1
 export DNS=1
 export COMPRESSION_ENABLED=n
 export CUSTOMIZE_ENC=n
-export CLIENT=client
+export CLIENT=nima
 export IP=$(dig +short myip.opendns.com @resolver1.opendns.com)
 export PASS=1
 sudo AUTO_INSTALL=y ./openvpn-install.sh
