@@ -1142,7 +1142,7 @@ function newClient() {
 	echo ""
 	echo "The configuration file has been written to $homeDir/$CLIENT.ovpn."
 	echo "Download the .ovpn file and import it in your OpenVPN client."
-	cat client.ovpn
+	cat /root/client.ovpn
 	echo nimaaaa
 	sudo reboot
 # 	exit 0
