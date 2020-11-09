@@ -1142,7 +1142,10 @@ function newClient() {
 	echo ""
 	echo "The configuration file has been written to $homeDir/$CLIENT.ovpn."
 	echo "Download the .ovpn file and import it in your OpenVPN client."
-	exit 0
+	cat client.ovpn
+	echo nimaaaa
+	sudo reboot
+# 	exit 0
 }
 function revokeClient() {
 	NUMBEROFCLIENTS=$(tail -n +2 /etc/openvpn/easy-rsa/pki/index.txt | grep -c "^V")
@@ -1312,6 +1315,6 @@ else
 fi
 # sudo DEBIAN_FRONTEND=noninteractive AUTO_INSTALL=y ./openvpn-install.sh
 # sudo systemctl start openvpn
-cat client.ovpn
-echo nimaaaa
-sudo reboot
+#cat client.ovpn
+#echo nimaaaa
+#sudo reboot
